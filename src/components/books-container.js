@@ -1,4 +1,5 @@
-import { Spin } from "antd";
+import { Spin, Empty } from "antd";
+
 import React from "react";
 import styled from "styled-components";
 import BookItem from "./book-item";
@@ -19,9 +20,13 @@ const BooksContainer = ({ data, isPending, showBooks }) => {
     <BooksContainerStyle>
       {showBooks && !isPending ? (
         <div className="flex">
-          {data.items.map((item) => (
-            <BookItem item={item} isPending={isPending} />
-          ))}
+          {data.items ? (
+            data.items.map((item) => (
+              <BookItem item={item} isPending={isPending} />
+            ))
+          ) : (
+            <Empty />
+          )}
         </div>
       ) : (
         <Spin size="large" />
