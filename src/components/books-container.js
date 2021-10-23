@@ -22,7 +22,7 @@ const BooksContainer = ({ data, isPending, showBooks }) => {
         <div className="flex">
           {data.items ? (
             data.items.map((item) => (
-              <BookItem item={item} isPending={isPending} />
+              <BookItem item={item} isPending={isPending}  />
             ))
           ) : (
             <Empty />

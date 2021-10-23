@@ -91,7 +91,7 @@ const BookItemStyles = styled.div`
 const BookItem = ({ item, isPending }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   return (
-    <div className={item.id}>
+    <div key={item.id}>
       <BookItemStyles>
         <div
           className="card"
@@ -114,7 +114,11 @@ const BookItem = ({ item, isPending }) => {
           <div className="button">
             <div className="cost">
               <a
-                href={item.volumeInfo.infoLink}
+                href={
+                  item.volumeInfo.previewLink
+                    ? item.volumeInfo.previewLink
+                    : item.volumeInfo.infoLink
+                }
                 target="_blank"
                 rel="noreferrer"
               >
@@ -153,7 +157,11 @@ const BookItem = ({ item, isPending }) => {
               <div className="button">
                 <div className="cost">
                   <a
-                    href={item.volumeInfo.infoLink}
+                    href={
+                      item.volumeInfo.previewLink
+                        ? item.volumeInfo.previewLink
+                        : item.volumeInfo.infoLink
+                    }
                     target="_blank"
                     rel="noreferrer"
                   >

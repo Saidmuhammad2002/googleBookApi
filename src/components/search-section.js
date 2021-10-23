@@ -1,6 +1,8 @@
 import { Select } from "antd";
 import React from "react";
 import styled from "styled-components";
+import uuid from "react-uuid";
+
 const InputStyle = styled.div`
   max-width: 100vw;
   height: 60vh;
@@ -74,7 +76,7 @@ export default function SearchSection({
           <Select.Option value={booksName}>{booksName}</Select.Option>
           {data.items
             ? data.items.map((item) => (
-                <Select.Option key={item.id} value={item.volumeInfo.title}>
+                <Select.Option key={uuid()} value={item.volumeInfo.title}>
                   {item.volumeInfo.title}
                 </Select.Option>
               ))
